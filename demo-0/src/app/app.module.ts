@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HomeComponent } from './home/home.component';
 
+import {Store, StoreModule} from "@ngrx/store";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {environment} from "../environments/environment";
+
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   imports: [
@@ -15,6 +19,12 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+      name: 'NgRx Demo App',
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],

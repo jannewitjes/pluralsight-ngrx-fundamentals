@@ -23,3 +23,8 @@ export const selectProductsTotal = createSelector(
   selectProducts,
   (products) => sumProducts(products)
 )
+
+export const selectProductsErrorMessage = createSelector(
+  selectProductsState,
+  (productsState) => productsState.errorMessage
+)

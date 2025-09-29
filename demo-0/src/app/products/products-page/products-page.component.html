@@ -1,4 +1,4 @@
-<div class="card error-card" *ngIf="errorMessage">
+<div class="card error-card" *ngIf="errorMessage$ | async as errorMessage">
   Error: {{ errorMessage }}
 </div>
 

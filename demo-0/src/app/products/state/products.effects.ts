@@ -52,7 +52,7 @@ export class ProductEffects {
           .update(product)
           .pipe(
             map((newProduct) =>
-              ProductsApiActions.productsUpdatedSuccess({ product: newProduct })
+              ProductsApiActions.productsUpdatedSuccess({ update: {id: product.id, changes: product} })
             ),
             catchError((error) => of(ProductsApiActions.productsUpdatedFail({ message: error})))
           )
